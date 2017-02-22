@@ -30,15 +30,7 @@ class main extends React.Component {
         return (
             <div style={style.container}>
                 <div>bruce</div>
-                <div>bruce</div>
-                <div>bruce</div>
-                <div>bruce</div>
-                <div>bruce1</div>
-                <div>bruce1</div>
-                <div>bruce1</div>
-                <div>bruce1</div>
-                <div>bruce1</div>
-                <div>bruce2</div>
+
 
                 <img src={back_image}/>
             </div >
