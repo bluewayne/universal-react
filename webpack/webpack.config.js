@@ -35,12 +35,13 @@ module.exports = {
         publicPath: publicPath,
         filename: 'bundle.js',
         chunkFilename: '[name][chunkhash].js'//用于指定非程序入口模块集的文件名称
-    }
+    },
+    devtool: 'eval-source-map'
     , module: {
         rules: [
             {
                 test: /\.js$/,
-                use: ['react-hot-loader','babel-loader'],
+                use: ['react-hot-loader', 'babel-loader'],
                 exclude: /(node_modules|bower_components)/
             },
             {
