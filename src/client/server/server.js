@@ -39,6 +39,7 @@ export default function () {
                 console.log('html   '+JSON.stringify(html));
 
                 res.render('index.ejs',{app:html});
+
             }
 
         })
