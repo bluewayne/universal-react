@@ -54,14 +54,13 @@ require('./users.css');
     onChange(e) {
 
         this.setState({name: e.target.value})
-
     }
 
     addUser() {
 
-
         this.props.userAction.setUser(this.state.name);
-
+        this.setState({name:''})
+        console.log('helo');
     }
 
     deleteUser(user_id) {
@@ -96,7 +95,7 @@ require('./users.css');
                     </ul>
 
                     <div style={{ marginTop: '50px'}}>
-                        <Input placeholder="input user name" size="large" onChange={this.onChange}/>
+                        <Input placeholder="input user name" size="large" onChange={this.onChange} value={this.state.name}/>
                         <Button type="primary" shape="circle" icon="plus-circle" onClick={this.addUser}/>
                     </div>
 
