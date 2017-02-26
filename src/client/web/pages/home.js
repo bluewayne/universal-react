@@ -6,6 +6,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
+
 class main extends React.Component {
     constructor(props) {
         super(props);
@@ -29,7 +30,6 @@ class main extends React.Component {
         let back_image = require('../assets/background-cover.jpg');
         return (
             <div style={style.container}>
-                <div>bruce</div>
                 <img src={back_image}/>
             </div>
         )

@@ -5,7 +5,7 @@
 var express = require('express');
 var path = require('path');
 var http = require('http');
-
+var config=require('../config');
 var webpack = require('webpack');
 
 var app = new express();
@@ -29,7 +29,7 @@ app.use(webpackHotMid(compiler, {
     log: console.log, heartbeat: 10 * 1000
 }))
 
-server.listen(3001, function (err) {
+server.listen(config.hmr, function (err) {
 
     if (err) {
         console.error('hmr server got error!')

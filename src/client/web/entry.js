@@ -2,22 +2,28 @@
  * Created by liujinhe on 17/2/22.
  */
 
-var routes = require('./routes');
-var ReactDom = require('react-dom');
-var React = require('react');
+import routes from  './routes';
+import ReactDom from 'react-dom';
+import React from 'react';
+import configureStore from './store.js'
+import { Provider } from 'react-redux'
+
+let store = configureStore();
 
 var render = routes=> {
 
-    ReactDom.render(<div>{routes}</div>, document.getElementById('app'))
+    ReactDom.render(<Provider store={store}>
+       <div> {routes}</div>
+    </Provider>, document.getElementById('app'))
 
 }
 
 render(routes);
 
-if (module.hot) {
-    module.hot.accept('./routes', () => {
-        const newRoutes = require('./routes').default;
-        render(newRoutes);
-    });
-}
+//if (module.hot) {
+//    module.hot.accept('./routes', () => {
+//        const newRoutes = require('./routes').default;
+//        render(newRoutes);
+//    });
+//}
 
