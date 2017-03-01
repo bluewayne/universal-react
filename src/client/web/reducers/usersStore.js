@@ -3,7 +3,7 @@
  */
 
 const defaultState = {
-    users: [{id:3,name:'bruce3'}],
+    users: [],
     stale:true
 }
 

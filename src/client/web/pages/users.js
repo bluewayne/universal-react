@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import userAction from '../actions/users.js'
 
-import {Input,Button,Card} from 'antd'
+import {Input,Button,Card,Message} from 'antd'
 require('./users.css');
 
 @connect((state) => {
@@ -58,9 +58,14 @@ require('./users.css');
 
     addUser() {
 
-        this.props.userAction.setUser(this.state.name);
-        this.setState({name:''})
-        console.log('helo');
+        if (this.state.name) {
+            this.props.userAction.setUser(this.state.name);
+            this.setState({name: ''})
+        } else {
+            this.refs['name_input'].focus();
+            Message.error('name is empty');
+        }
+
     }
 
     deleteUser(user_id) {
@@ -69,7 +74,6 @@ require('./users.css');
 
     render() {
 
-        let users1 = [{id: 1, name: 'bruce1'}, {id: 2, name: 'bruce2'}]
 
         let {usersStore}=this.props;
 
@@ -79,7 +83,8 @@ require('./users.css');
             return (
                 <li key={user.id} style={{ margin: '10px 0px 10px'}}>
 
-                    <div style={{ width: '100px' ,margin: '0 10px 0 0',display:'inline-block'}}><span>{user.name} </span></div>
+                    <div style={{ width: '100px' ,margin: '0 10px 0 0',display:'inline-block'}}>
+                        <span>{user.name} </span></div>
                     <Button type="primary" shape="circle" icon="minus-circle" onClick={()=>this.deleteUser(user.id)}/>
                 </li>
 
@@ -95,7 +100,8 @@ require('./users.css');
                     </ul>
 
                     <div style={{ marginTop: '50px'}}>
-                        <Input placeholder="input user name" size="large" onChange={this.onChange} value={this.state.name}/>
+                        <Input placeholder="input user name" size="large" onChange={this.onChange}
+                               value={this.state.name} ref='name_input'/>
                         <Button type="primary" shape="circle" icon="plus-circle" onClick={this.addUser}/>
                     </div>
 

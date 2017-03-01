@@ -11,7 +11,7 @@ module.exports={
         port:3000
     },
     hmr:{
-        host:3001
+        port:3001
     },
     api:{
         port:3002

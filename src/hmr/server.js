@@ -29,7 +29,7 @@ app.use(webpackHotMid(compiler, {
     log: console.log, heartbeat: 10 * 1000
 }))
 
-server.listen(config.hmr, function (err) {
+server.listen(config.hmr.port, function (err) {
 
     if (err) {
         console.error('hmr server got error!')

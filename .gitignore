@@ -2,3 +2,5 @@ node_modules/
 build/
 .idea/
 test/
+npm-debug.log.*
+isolate-0x102002000-v8.log

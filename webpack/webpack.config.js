@@ -4,19 +4,19 @@
 //refer to link http://blog.csdn.net/zhbhun/article/details/47208885
 let path = require('path');
 let webpack = require('webpack');
-
+let config=require('../src/config');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 //为什么要HMR:Hot Module Replacement (HMR) exchanges, adds, or removes modules while an application is running without a page reload.
 
 const contextRoot = path.resolve(__dirname, '..');
 
 const devScript = "webpack/hot/dev-server";//bundle the client for hot reloading
-const hotScript = "webpack-hot-middleware/client?path=http://127.0.0.1:3001/__webpack_hmr&timeout=20000&reload=true";//bundle the client for webpack dev server
+const hotScript = `webpack-hot-middleware/client?path=http://127.0.0.1:${config.hmr.port}/__webpack_hmr&timeout=20000&reload=true`;//bundle the client for webpack dev server
 
 //and connect to the provided endpoint
 
 
-var publicPath = 'http://127.0.0.1:3001/assets/';
+var publicPath = `http://127.0.0.1:${config.hmr.port}/assets/`;
 //assets/ 也可以，但是做服务端渲染的时候，需要指明具体ip地址。如果不加上的话，客户端渲染引用的是/assets/,服务器引用的是http:/127.0.0.1:xxxx/assets
 // 因为服务端渲染的服务器和客户端hmr服务器是不同的，
 //如果用的相对地址 /assets/的话
