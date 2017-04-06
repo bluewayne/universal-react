@@ -31,7 +31,7 @@ module.exports = {
         './src/client/web/entry.js'
     ],
     output: {
-        path: '/build',
+        path: '/out',
         publicPath: publicPath,
         filename: 'bundle.js',
         chunkFilename: '[name][chunkhash].js'//用于指定非程序入口模块集的文件名称
@@ -56,7 +56,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader', loader: [
+                    fallback: 'style-loader', use: [
                         {
                             loader: 'css-loader', options: {
                             discardComments: {removeAll: true}
@@ -69,7 +69,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract(
                     {
-                        fallback: 'style-loader', loader: [
+                        fallback: 'style-loader', use: [
                         {
                             loader: 'css-loader',
                             options: {
@@ -100,7 +100,7 @@ module.exports = {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract(
                     {
-                        fallback: 'style-loader', loader: [
+                        fallback: 'style-loader', use: [
                         {
                             loader: 'css-loader',
                             options: {
