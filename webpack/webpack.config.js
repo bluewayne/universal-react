@@ -15,7 +15,6 @@ const hotScript = `webpack-hot-middleware/client?path=http://127.0.0.1:${config.
 
 //and connect to the provided endpoint
 
-
 var publicPath = `http://127.0.0.1:${config.hmr.port}/assets/`;
 //assets/ 也可以，但是做服务端渲染的时候，需要指明具体ip地址。如果不加上的话，客户端渲染引用的是/assets/,服务器引用的是http:/127.0.0.1:xxxx/assets
 // 因为服务端渲染的服务器和客户端hmr服务器是不同的，
@@ -31,7 +30,7 @@ module.exports = {
         './src/client/web/entry.js'
     ],
     output: {
-        path: '/out',
+        path:  `${contextRoot}/build/client`,
         publicPath: publicPath,
         filename: 'bundle.js',
         chunkFilename: '[name][chunkhash].js'//用于指定非程序入口模块集的文件名称
