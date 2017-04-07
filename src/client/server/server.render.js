@@ -9,8 +9,10 @@
 import {server} from 'universal-webpack';
 
 import setting from '../../../webpack/server/universal-webpack-settings.js'
-import config from '../../../webpack/webpack.config.js'
+// import config from '../../../webpack/webpack.config.js'
+import config from '../../../webpack/webpack.config.for.server.js'
 
+console.log('server.render begin ......');
 
 server(config,setting);
 
